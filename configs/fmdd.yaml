@@ -1,0 +1,15 @@
+seed: 0
+img_size: 512
+input_channels: 1
+std_kernel_size: 2
+shuffling_tile_size: 4
+lr: 0.0004
+masking_threshold: 0.1
+num_predictions: 10
+num_iterations: 700
+shuffling_iteration: 100
+mask_high: 0.9
+mask_low: 0.1
+mask_medium: 0.5
+epsilon_low: 1.0
+epsilon_high: 2.0
