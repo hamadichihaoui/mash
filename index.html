@@ -1,78 +1,220 @@
-
 <!DOCTYPE html>
 <html>
-  <head lang="en">
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>MASH website</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="e157f0faa3d013ba7c0b49ed-text/javascript"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="e157f0faa3d013ba7c0b49ed-text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js" type="e157f0faa3d013ba7c0b49ed-text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js" type="e157f0faa3d013ba7c0b49ed-text/javascript"></script>
-    <script src="https://unpkg.com/image-compare-viewer/dist/image-compare-viewer.min.js" type="e157f0faa3d013ba7c0b49ed-text/javascript"></script>
-  </head>
-  <body>
-    <div class="container" id="main">
-      <div class="row">
-        <h1 class="col-md-12 text-center">
-          <b>Masked and Shuffled Blind Spot Denoising for Real-World</b></br> 
-          <small>
-            <a href="https://hamadichihaoui.github.io">Hamadi Chihaoui</a>, <a href="https://cvg.unibe.ch/people/favaro">Paolo Favaro</a>
-          </small>
-          <br>
-          <small>
-            Computer Vision Group, Institute of Informatics, University of Bern, Bern, Switzerland
-          </small>
-	  <br>
-          <small>
-            at CVPR 2024
-          </small>
-        </h1>
-      </div>
-    </div>  
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DiffPIR">
+  <meta property="og:title" content="Denoising Diffusion Models for Plug-and-Play Image Restoration"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="https://yuanzhi-zhu.github.io/DiffPIR/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/illustration.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
 
-    <div class="col-md-6 col-md-offset-3" style="padding-top: 2rem;">
-      <div>
-        <div class="col-md-6 text-center">
-          <h2>
-            <a href="https://www.github.com/hamadichihaoui/mash">[GitHub]</a>
-          </h2>
-        </div>
-        <div class="col-md-6 text-center">
-          <h2>
-            <a href="https://www.github.com/hamadichihaoui/mash">[Arxiv]</a>
-          </h2>
+
+  <meta name="twitter:title" content="Denoising Diffusion Models for Plug-and-Play Image Restoration">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/illustration.png">
+  <meta name="twitter:card" content="illustration_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <!-- <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Denoising Diffusion Models for Plug-and-Play Image Restoration</title>
+  <link rel="icon" type="image/x-icon" href="../../icon.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"> <b>Masked and Shuffled Blind Spot Denoising for Real-World</b></br> </h1>
+            <div class="is-size-2 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                  <a href="https://hamadichihaoui.github.io" target="_blank" style="color:rgb(255, 125, 0) !important;">Hamadi Chihaoui</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                  <a href="https://cvg.unibe.ch/people/favaro" target="_blank" style="color:rgb(255, 125, 0) !important;">Paolo Favaro Zhang</a><sup>1</sup>,
+              </span>
+                </div>
+          
+
+            <div class="is-size-5 publication-institutes">
+              <span class="institute-block"><sup>1</sup>University of Bern</span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/pdf/2305.08995.pdf" target="_blank"
+                          class="external-link button is-normal is-rounded is-dark"
+                          style="padding: 10px 20px; color: white; background-color: #ff6a00af; border-radius: 20px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                            <span class="icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </span>
+                            <span>Paper</span>
+                        </a>
+                      </span>
+
+                      <!-- ArXiv abstract Link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2305.08995" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark"
+                        style="padding: 10px 20px; color: white; background-color: #ff6a00af; border-radius: 20px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                      </span>
+
+                      <!-- Github link -->
+                      <span class="link-block">
+                        <a href="https://www.github.com/hamadichihaoui/mash" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark"
+                        style="padding: 10px 20px; color: white; background-color: #ff6a00af; border-radius: 20px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                      </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="col-md-8 col-md-offset-2" style="padding-top: 2rem;">
-      <div>
-        <h2>Abstract<br>
-          <small>
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
             We introduce a novel approach to single image denoising based on the Blind Spot Denoising principle, which we call MAsked and SHuffled Blind Spot Denoising (MASH). We focus on the case of correlated noise, which often plagues real images. MASH is the result of a careful analysis to determine the relationships between the level of blindness (masking) of the input and the (unknown) noise correlation. Moreover, we introduce a shuffling technique to weaken the local correlation of noise, which in turn yields an additional denoising performance improvement. We evaluate MASH via extensive experiments on real-world noisy image datasets. We demonstrate on par or better results compared to existing self-supervised denoising methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
 
-        </small>
+
+
+<!-- Image carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          First image description.
         </h2>
       </div>
+      <div class="item">
+        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Second image description.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+         Third image description.
+       </h2>
+     </div>
+     <div class="item">
+      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Fourth image description.
+      </h2>
     </div>
+  </div>
+</div>
+</div>
+</section> -->
+<!-- End image carousel -->
 
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <h3>
-        Acknowledgements
-        </h3>
-        <p class="text-justify">
-        The website template was borrowed from <a href="https://kfmei.page/vidm/">VIDM</a>.
-        </p>
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</section> -->
+<!-- End youtube video -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built and modified based on <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            <br> 
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
 
   </body>
-</html>
+  </html>
